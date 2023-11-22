@@ -17,6 +17,8 @@
 
         </div>
 
+        <br>
+
         <div id="libros-genero">
 
         </div>

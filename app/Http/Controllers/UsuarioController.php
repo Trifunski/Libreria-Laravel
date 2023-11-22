@@ -20,7 +20,7 @@
 
                 session(['usuario' => $user]);
 
-                echo session('usuario');
+                session(['carrito' => []]);
 
                 return redirect('principal');
 
@@ -34,9 +34,11 @@
 
         public function cerrarSesion() {
 
-            session_destroy();
+            session()->forget('usuario');
 
-            header('Location: /');
+            session()->forget('carrito');
+
+            return response( 'Sesión cerrada', 200 )->header( 'Content-Type', 'text/plain' );
 
         }
 

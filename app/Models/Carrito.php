@@ -2,21 +2,24 @@
 
     namespace App\Models;
 
+    use Illuminate\Database\Eloquent\Model;
+
     class Carrito extends Model {
 
-        // Funciones para cargar, añadir, eliminar elementos del carrito
+        public static function obtenerLibroIsbn($isbn) {
 
-        public function cargarCarrito() {
-
-        }
-
-        public function añadirProducto() {
-
-        }
-
-        public function eliminarProducto() {
-
-
+            // Implementar la lógica para obtener libros por género
+    
+            $xml = simplexml_load_file('libros.xml');
+    
+            foreach ($xml->libro as $libro) {
+                if ($libro->isbn == $isbn) {
+                    return $libro;
+                }
+            }
+    
+            return null;
+     
         }
 
     }

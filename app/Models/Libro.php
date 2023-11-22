@@ -8,10 +8,20 @@ class Libro extends Model {
 
     // Implementar lógica para obtener datos del archivo "libros.xml"
 
-    public function obtenerLibrosEnJSON() {
+    public static function obtenerLibrosEnJSON() {
         // Implementar la lógica para obtener libros en formato JSON
 
-        
+        $xml = simplexml_load_file('libros.xml');
+
+        $libros = [];
+
+        foreach ($xml->libro as $libro) {
+            $libros[] = $libro;
+        }
+
+        $json = json_encode($libros);
+
+        return $json;
 
     }
 

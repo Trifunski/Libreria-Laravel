@@ -9,9 +9,11 @@
 
         // Funciones para listar libros y libros por género
 
-        public function listarLibros() {
-
+        public static function listarLibros() {
             
+            $libros = Libro::obtenerLibrosEnJSON();
+
+            return response( $libros, 200 )->header( 'Content-Type', 'text/plain' );;
 
         }
 

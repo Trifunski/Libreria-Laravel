@@ -1,5 +1,14 @@
 <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
 
+<?php
+
+    $logout = $_GET['logout'] ?? null;
+
+    if ($logout) {
+        echo '<div class="alert alert-success">Sesión cerrada correctamente</div>';
+    }
+
+?>
     
 <div class="container mt-5">
     <div class="row justify-content-center">
