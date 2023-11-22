@@ -20,7 +20,7 @@
 
                 session(['usuario' => $user]);
 
-                session(['carrito' => []]);
+                /* session(['carrito' => []]); */
 
                 return redirect('principal');
 

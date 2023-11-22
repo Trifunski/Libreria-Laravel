@@ -62,9 +62,13 @@
 
             // Se elimina el libro del carrito
 
-            if (isset($carrito[$isbnLibro])) {
+            if (isset($carrito[$isbnLibro]) && $carrito[$isbnLibro] > 0) {
                 // Si el libro ya está en el carrito, resta las cantidades
                 $carrito[$isbnLibro] -= $cantidadLibro;
+            }
+
+            if ($carrito[$isbnLibro] <= 0) {
+                unset($carrito[$isbnLibro]);
             }
 
             // Se guarda el carrito en la sesión
