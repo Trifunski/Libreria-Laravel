@@ -1,21 +1,13 @@
-<?php 
+<?php
 
-    namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-    use App\Models\Genero;
+use App\Models\Genero;
 
-    class GeneroController extends Controller {
+class GeneroController extends Controller {
+    public function listarGeneros() {
+        $generos = Genero::obtenerGenerosEnJSON();
 
-        // Funciones para listar géneros
-
-        public static function listarGeneros() {
-
-            $generos = Genero::obtenerGenerosEnJSON();
-
-            return response( $generos, 200 )->header( 'Content-Type', 'text/plain' );
-
-        }
-
+        return response($generos, 200)->header('Content-Type', 'text/plain');
     }
-
-?>
+}

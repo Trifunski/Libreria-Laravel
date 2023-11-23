@@ -8,10 +8,10 @@ class Libro extends Model {
 
     // Implementar lógica para obtener datos del archivo "libros.xml"
 
-    public static function obtenerLibrosEnJSON() {
+    public static function obtenerLibros() {
         // Implementar la lógica para obtener libros en formato JSON
 
-        $xml = simplexml_load_file('libros.xml');
+        $xml = simplexml_load_file(\storage_path('app/configuracion/libros.xml'));
 
         $libros = [];
 
@@ -31,7 +31,7 @@ class Libro extends Model {
 
         $genero = ucfirst($genero);
 
-        $xml = simplexml_load_file('libros.xml');
+        $xml = simplexml_load_file(\storage_path('app/configuracion/libros.xml'));
 
         $libros = [];
 

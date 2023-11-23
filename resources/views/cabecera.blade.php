@@ -17,5 +17,7 @@
     Menú: <a href="#" onclick="cargarGeneros()">Listado de Generos</a> / <a onclick="cargarLibros()" href="#">Listado de Libros</a> / <a onclick="cargarCarrito()" href="#">Ver Carrito</a> / <a onclick="logout()" href="#">Cerrar Sesión</a>
 </div>
 
+
+
 <hr class="m-3">
 

@@ -5,32 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model {
-    // Implementar lógica para obtener datos del archivo "configuracion.xml"
+    
+    private static $usuario;
 
-    private static function getUsuario() {
-
-        $xml = simplexml_load_file('configuracion.xml');
-
-        $usuario = $xml->usuario;
-        $clave = $xml->clave;
-
-        return (object) [
-            'user' => $usuario,
-            'password' => $clave
-        ];
-
+    private static function cargarConfiguracion() {
+        if (!self::$usuario) {
+            $xml = simplexml_load_file(\storage_path('app/configuracion/configuracion.xml'));
+            self::$usuario = (object) [
+                'user' => $xml->usuario,
+                'password' => $xml->clave
+            ];
+        }
+        return self::$usuario;
     }
 
     public static function validarUsuario($user, $password) {
-        
-        $usuario = self::getUsuario();
+        $usuario = self::cargarConfiguracion();
 
-        if ($user == $usuario->user && $password == $usuario->password) {
-            return true;
-        } else {
-            return "Usuario o contraseña incorrectos";
-        }
-
+        return ($user == $usuario->user && $password == $usuario->password) ? true : "Usuario o contraseña incorrectos";
     }
 }
-

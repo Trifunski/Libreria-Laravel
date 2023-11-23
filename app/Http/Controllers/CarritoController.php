@@ -81,11 +81,23 @@
 
         }
 
+        public function vaciarCarrito() {
 
+            // Se obtiene el carrito de la sesión
 
-        public function procesarLibroCarrito() {
+            $carrito = session()->get('carrito', []);
 
-            
+            // Se vacía el carrito
+
+            $carrito = [];
+
+            // Se guarda el carrito en la sesión
+
+            session()->put('carrito', $carrito);
+
+            // Devuelve la respuesta JSON directamente
+
+            return response()->json($carrito);
 
         }
 
