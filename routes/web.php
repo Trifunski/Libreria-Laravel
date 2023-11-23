@@ -36,4 +36,4 @@ Route::group(['prefix' => 'carrito'], function () {
 
 // Rutas de usuario
 Route::get('/cerrar-sesion', [UsuarioController::class, 'cerrarSesion'])->name('cerrar-sesion');
-Route::post('/iniciar-sesion', [UsuarioController::class, 'iniciarSesion'])->name('iniciar-sesion');
+Route::get('/iniciar-sesion', [UsuarioController::class, 'iniciarSesion'])->name('iniciar-sesion');

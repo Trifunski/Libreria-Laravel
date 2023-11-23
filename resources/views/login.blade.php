@@ -15,8 +15,7 @@
         <div class="col-md-6">
             <h1 class="m-3">Librería</h1>
             <div class="m-3">
-                <form method="POST" action="{{ route('iniciar-sesion') }}">
-                    @csrf
+                <form method="get" action="{{ route('iniciar-sesion') }}">
                     <div class="form-group">
                         <label for="email">Usuario</label>
                         <input type="email" id="email" name="email" class="form-control" required autofocus>

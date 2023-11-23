@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class UsuarioController extends Controller {
 
     public function iniciarSesion(Request $request) {
-        $user = $request->input('email');
-        $password = $request->input('password');
+        $user = filter_var($request->input('email'), FILTER_SANITIZE_EMAIL);
+        $password = filter_var($request->input('password'), FILTER_SANITIZE_STRING);
 
-        if (Usuario::validarUsuario($user, $password)) {
+        if (Usuario::validarUsuario($user, $password)) { 
             session(['usuario' => $user]);
             return redirect('principal');
         } else {
